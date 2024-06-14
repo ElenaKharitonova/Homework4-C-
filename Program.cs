@@ -2,76 +2,86 @@
 // Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого 
 // чётная.
 
-//*Задайте одномерный массив из 10 целых чисел от 1 до 100. 
-//*Найдите количество элементов массива, значения которых лежат в отрезке [10,90].
-
-// static int CountItemsRange(int[] numbers, int minRange, int maxRange)
-//     {      
-//       int count = 0;
-//       for(int i = 0; i < numbers.Length; i++)
-//       {
-//          if (numbers[i] <= maxRange && numbers[i] >= minRange)
-//          {
-//              count += 1;
-//          }
-//       }
-//        return count;
+// static void Main()
+// {
+//     while (true) // Бесконечный цикл
+//     {
+//         Console.Write("Введите число или 'q' для выхода: ");
+//         string input = Console.ReadLine(); // Чтение строки ввода пользователя
+//         if (input == "q") // Проверка на ввод 'q' для выхода
+//         {
+//             break;
+//         }
+//         int number;
+//         if (int.TryParse(input, out number)) // Проверка, является ли ввод числом{
+//         int sum = 0;
+//         while (number > 0) // Вычисление суммы цифр числа
+//         {
+//             sum += number % 10; // Добавление последней цифры к сумме
+//             number /= 10; // Удаление последней цифры из числа
+//         }
+//         if (sum % 2 == 0) // Проверка, является ли сумма цифр четной
+//         {
+//             Console.WriteLine("[STOP]");
+//             break;
+//         }
+//         }
+//         else // Если ввод не является числом и не 'q', повторить запрос
+//         {
+//             Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое числоили 'q'.");
+//         }
 //     }
-// int[] array = {1, 5, 10, 20, 30, 40, 99, 4, 90, 3};
-// Console.WriteLine(CountItemsRange(array, 10, 90));
+
 
 // Задача2
 // Задайте массив заполненный случайными трёхзначными числами. 
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 
-// static int CountEvenItems(int[] numbers)
-//     {
-//       int count = 0;
-//       for(int i = 0; i < numbers.Length; i++)
-//       {
-//          if (numbers[i] % 2 == 0)
-//          {
-//              count += 1;
-//          }
-//       }
-//        return count;  
-//     }
-
-// int[] array = {2, 5, 2, 3, 6, 3, 7, 8, 2, 4};
-// Console.WriteLine(CountEvenItems(array));
-
-//Задача 3
-// Напишите программу, которая перевернёт одномерный массив (первый элемент 
-// станет последним, второй – предпоследним и т.д.)
-
-static double FindMin(double[] numbers)
+static void Main()
+{
+    int[] numbers = new int[10]; // Массив для хранения случайных чисел
+    Random random = new Random(); // Генератор случайных чисел
+    int evenCount = 0; // Счетчик четных чисел
+    // Заполнение массива случайными трехзначными числами
+    for (int i = 0; i < numbers.Length; i++)
     {
-      double min = 100000;
-      for(int i = 0; i < numbers.Length; i++)
-      {
-         if (numbers[i] < min)
-         {
-             min = numbers[i];
-         }
-      }
-       return min;    
-            
+        numbers[i] = random.Next(100, 1000); // Случайное число от 100 до 999
+        Console.Write(numbers[i] + " "); // Вывод сгенерированного числа
+// Проверка на четность и увеличение счетчика
+        if (numbers[i] % 2 == 0)
+        {
+            evenCount++;
+        }
     }
-    
-   
-    static double FindMax(double[] numbers)
+// Вывод количества четных чисел в массиве
+    Console.WriteLine($"\nКоличество четных чисел в массиве: {evenCount}");
+}
+
+Задача3
+Реверсирование одномерного массива
+
+static void Main()
+{
+    int[] numbers = {1, 3, 5, 6, 7, 8}; // Исходный массив
+    int temp;
+    // Вывод исходного массива
+    Console.Write("Исходный массив: ");
+    foreach (int number in numbers)
     {
-      double max = 0;
-      for(int i = 0; i < numbers.Length; i++)
-      {
-         if (numbers[i] > max)
-         {
-             max = numbers[i];
-         }
-      }
-       return max;    
-      
+        Console.Write(number + " ");
     }
-    
-double[] array = {0.25, 5.4, 1.3, 2.1, 3.8, 5.2, 3.01};
-Console.WriteLine(FindMax(array) - FindMin(array));
+    // Реверсирование массива
+    for (int i = 0; i < numbers.Length / 2; i++)
+    {
+    // Меняем местами элементы
+        temp = numbers[i];
+        numbers[i] = numbers[numbers.Length - 1 - i];
+        numbers[numbers.Length - 1 - i] = temp;
+    }
+    // Вывод измененного массива
+    Console.Write("\nПеревернутый массив: ");
+    foreach (int number in numbers)
+    {
+    Console.Write(number + " ");
+    }
+}
