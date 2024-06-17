@@ -2,86 +2,133 @@
 // Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого 
 // чётная.
 
-// static void Main()
-// {
-//     while (true) // Бесконечный цикл
-//     {
-//         Console.Write("Введите число или 'q' для выхода: ");
-//         string input = Console.ReadLine(); // Чтение строки ввода пользователя
-//         if (input == "q") // Проверка на ввод 'q' для выхода
-//         {
-//             break;
-//         }
-//         int number;
-//         if (int.TryParse(input, out number)) // Проверка, является ли ввод числом{
-//         int sum = 0;
-//         while (number > 0) // Вычисление суммы цифр числа
-//         {
-//             sum += number % 10; // Добавление последней цифры к сумме
-//             number /= 10; // Удаление последней цифры из числа
-//         }
-//         if (sum % 2 == 0) // Проверка, является ли сумма цифр четной
-//         {
-//             Console.WriteLine("[STOP]");
-//             break;
-//         }
-//         }
-//         else // Если ввод не является числом и не 'q', повторить запрос
-//         {
-//             Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое числоили 'q'.");
-//         }
-//     }
+
+bool IsTrue(string value)
+{
+    if(value == "q") 
+    {
+        return false;
+    }
+    int num = Convert.ToInt32(value);
+    int sum = 0;
+    while(num > 0)
+    {
+        sum += num % 10;
+        num /= 10;
+    }
+    if(sum % 2 == 0)
+    {
+        return false;
+    }
+    return true;
+}
+
+
+bool work = true;
+Console.WriteLine("Input number or 'q': " );
+while(work)
+{   
+    string value = Console.ReadLine();
+    if(IsTrue(value))
+    {
+        System.Console.WriteLine("Next");
+    }
+    else
+    {
+        System.Console.WriteLine("STOP");
+        work = false;
+    }
+}
 
 
 // Задача2
 // Задайте массив заполненный случайными трёхзначными числами. 
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 
-static void Main()
-{
-    int[] numbers = new int[10]; // Массив для хранения случайных чисел
-    Random random = new Random(); // Генератор случайных чисел
-    int evenCount = 0; // Счетчик четных чисел
-    // Заполнение массива случайными трехзначными числами
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = random.Next(100, 1000); // Случайное число от 100 до 999
-        Console.Write(numbers[i] + " "); // Вывод сгенерированного числа
-// Проверка на четность и увеличение счетчика
-        if (numbers[i] % 2 == 0)
-        {
-            evenCount++;
-        }
-    }
-// Вывод количества четных чисел в массиве
-    Console.WriteLine($"\nКоличество четных чисел в массиве: {evenCount}");
-}
+// int[] CreateRandomArrayThirdDigit(int size)
+// {    
+//     int[] array = new int[size];
+//     Random random = new Random();
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = random.Next(100, 999 + 1);
+//     }
+//     return array;
+// }
 
-Задача3
-Реверсирование одномерного массива
+// void PrintArray(int[] array)
+// {
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         System.Console.Write(array[i] + " ");
+//     }
+//     System.Console.WriteLine();
+// }
 
-static void Main()
-{
-    int[] numbers = {1, 3, 5, 6, 7, 8}; // Исходный массив
-    int temp;
-    // Вывод исходного массива
-    Console.Write("Исходный массив: ");
-    foreach (int number in numbers)
-    {
-        Console.Write(number + " ");
-    }
-    // Реверсирование массива
-    for (int i = 0; i < numbers.Length / 2; i++)
-    {
-    // Меняем местами элементы
-        temp = numbers[i];
-        numbers[i] = numbers[numbers.Length - 1 - i];
-        numbers[numbers.Length - 1 - i] = temp;
-    }
-    // Вывод измененного массива
-    Console.Write("\nПеревернутый массив: ");
-    foreach (int number in numbers)
-    {
-    Console.Write(number + " ");
-    }
-}
+
+// int ArrayCounter(int[] arr)
+// {
+//     int count = 0;
+//     for (int i = 0; i < arr.Length; i++)
+//     {
+//         if(arr[i] % 2 == 0)
+//         {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+// Console.WriteLine("Input size of array: " );
+// int size = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateRandomArrayThirdDigit(size);
+// PrintArray(myArray);
+// Console.Write("Количество четных чисел: ");
+// Console.WriteLine(ArrayCounter(myArray));
+
+// Задача3
+// Реверсирование одномерного массива
+
+// int[] CreateRandomArray(int size, int minRange, int maxRange)
+// {    
+//     int[] array = new int[size];
+//     Random random = new Random();
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         array[i] = random.Next(minRange, maxRange + 1);
+//     }
+//     return array;
+// }
+
+// void PrintArray(int[] array)
+// {
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         System.Console.Write(array[i] + " ");
+//     }
+//     System.Console.WriteLine();
+// }
+  
+// int[] arrayRevers(int[] matrix)
+// {
+//     int temp;
+//     for (int i = 0; i < matrix.Length / 2; i++)
+//     {    
+//         temp = matrix[i];
+//         matrix[i] = matrix[matrix.Length - 1 - i];
+//         matrix[matrix.Length - 1 - i] = temp;
+//     }
+//     return matrix;
+// }
+
+// System.Console.WriteLine("Input size of array: " );
+// int size = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input minimal value of array element: " );
+// int min = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input maximal value of array element: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] myArray = CreateRandomArray(size, min, max);
+// Console.Write("Исходный массив: ");
+// PrintArray(myArray);
+// Console.Write("Перевернутый массив: ");
+// PrintArray(arrayRevers(myArray));

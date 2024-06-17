@@ -1,0 +1,15 @@
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.csproj.AssemblyReference.cache
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.GeneratedMSBuildEditorConfig.editorconfig
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.AssemblyInfoInputs.cache
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.AssemblyInfo.cs
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.csproj.CoreCompileInputs.cache
+C:\C#\Homework\Hw4\bin\Debug\net6.0\Hw4.exe
+C:\C#\Homework\Hw4\bin\Debug\net6.0\Hw4.deps.json
+C:\C#\Homework\Hw4\bin\Debug\net6.0\Hw4.runtimeconfig.json
+C:\C#\Homework\Hw4\bin\Debug\net6.0\Hw4.dll
+C:\C#\Homework\Hw4\bin\Debug\net6.0\Hw4.pdb
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.dll
+C:\C#\Homework\Hw4\obj\Debug\net6.0\refint\Hw4.dll
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.pdb
+C:\C#\Homework\Hw4\obj\Debug\net6.0\Hw4.genruntimeconfig.cache
+C:\C#\Homework\Hw4\obj\Debug\net6.0\ref\Hw4.dll
